@@ -11,7 +11,14 @@ namespace WirelessMediaTest.EFDataAccess
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
+            builder.Property(p => p.ProductName).HasMaxLength(50);
+            
+            builder.Property(p => p.ProductName).IsRequired();
+            builder.Property(p => p.ProductDesc).IsRequired();
+            builder.Property(p => p.ProductPrice).IsRequired();
 
+            builder.Property(p => p.Deleted).HasDefaultValue(false);
+            builder.Property(p => p.CreatedAt).HasDefaultValueSql("GETDATE()");
         }
     }
 }

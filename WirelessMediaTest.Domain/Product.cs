@@ -9,8 +9,11 @@ namespace WirelessMediaTest.Domain
         public string ProductName { get; set; }
         public string ProductDesc { get; set; }
         public double ProductPrice { get; set; }
+
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public Manufacturer Manufacturer { get; set; }
-        public Vendor Vendor { get; set; }
+
+        public int ManufacturerVendorId { get; set; }
+        public ManufacturerVendor ManufacturerVendor { get; set; }
     }
 }
