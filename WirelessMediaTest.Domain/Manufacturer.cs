@@ -6,6 +6,6 @@ namespace WirelessMediaTest.Domain
 {
     public class Manufacturer : BaseEntity
     {
-        public int ManufacturerName { get; set; }
+        public string ManufacturerName { get; set; }
     }
 }
