@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WirelessMediaTest.Web", "WirelessMediaTest.Web.csproj", "{78943528-5E8B-41AD-9FC3-E98CD41C6DD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WirelessMediaTest.Domain", "..\WirelessMediaTest.Domain\WirelessMediaTest.Domain.csproj", "{5DC580D2-2835-4762-BA7C-8EDF3B96542F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WirelessMediaTest.EFDataAccess", "..\WirelessMediaTest.EFDataAccess\WirelessMediaTest.EFDataAccess.csproj", "{84F7FA11-EA59-4E36-95FC-A2F74EADD131}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78943528-5E8B-41AD-9FC3-E98CD41C6DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78943528-5E8B-41AD-9FC3-E98CD41C6DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78943528-5E8B-41AD-9FC3-E98CD41C6DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78943528-5E8B-41AD-9FC3-E98CD41C6DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC580D2-2835-4762-BA7C-8EDF3B96542F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC580D2-2835-4762-BA7C-8EDF3B96542F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC580D2-2835-4762-BA7C-8EDF3B96542F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC580D2-2835-4762-BA7C-8EDF3B96542F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84F7FA11-EA59-4E36-95FC-A2F74EADD131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84F7FA11-EA59-4E36-95FC-A2F74EADD131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84F7FA11-EA59-4E36-95FC-A2F74EADD131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84F7FA11-EA59-4E36-95FC-A2F74EADD131}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FBD6F06A-1678-4F26-8659-34D792D93139}
+	EndGlobalSection
+EndGlobal
