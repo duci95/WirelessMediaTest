@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ManufacturerCommands\" />
+    <Folder Include="NewFolder\" />
+    <Folder Include="VendorCommands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WirelessMediaTest.EFDataAccess\WirelessMediaTest.EFDataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

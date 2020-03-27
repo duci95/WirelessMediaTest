@@ -5,8 +5,9 @@ using System.Text;
 
 namespace WirelessMediaTest.Domain
 {
-    public class ManufacturerVendor : BaseEntity
+    public class ManufacturerVendor
     {
+        public int Id { get; set; }
         public int ManufacturerId { get; set; }
         public int VendorId { get; set; }
 

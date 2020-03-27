@@ -25,9 +25,6 @@ namespace WirelessMediaTest.EFDataAccess
             modelBuilder.ApplyConfiguration(new VendorConfiguration());
             modelBuilder.ApplyConfiguration(new ManufacturerConfiguration());
             modelBuilder.ApplyConfiguration(new ManufacturerVendorConfiguration());
-            
-            
         }
     }
-
 }

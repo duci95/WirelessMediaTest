@@ -12,6 +12,7 @@ namespace WirelessMediaTest.EFDataAccess
         public void Configure(EntityTypeBuilder<ManufacturerVendor> builder)
         {
             builder.HasAlternateKey(mv => new { mv.ManufacturerId, mv.VendorId });
+
         }
     }
 }

@@ -15,5 +15,7 @@ namespace WirelessMediaTest.Domain
 
         public int ManufacturerVendorId { get; set; }
         public ManufacturerVendor ManufacturerVendor { get; set; }
+
+        
     }
 }
