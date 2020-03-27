@@ -7,6 +7,6 @@ namespace WirelessMediaTest.Application.DTO
     public class CategoryDTO
     {
         public int Id { get; set; }
-        public string CatgeoryName { get; set; }
+        public string CategoryName { get; set; }
     }
 }

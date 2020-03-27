@@ -13,8 +13,11 @@ namespace WirelessMediaTest.Domain
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
-        public int ManufacturerVendorId { get; set; }
-        public ManufacturerVendor ManufacturerVendor { get; set; }
+        public int ManufacturerId { get; set; }
+        public Manufacturer Manufacturer { get; set; }
+
+        public int VendorId { get; set; }
+        public Vendor Vendor { get; set; }
 
         
     }

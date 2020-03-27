@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WirelessMediaTest.Application.Commands.ProductCommands
 {
-    public interface IGetProductsCommand : ICommand<ProductDTO, IEnumerable<ProductDTO>>
+    public interface IGetProductsCommand : ICommand<AddProductDTO, IEnumerable<AddProductDTO>>
     {
         
     }

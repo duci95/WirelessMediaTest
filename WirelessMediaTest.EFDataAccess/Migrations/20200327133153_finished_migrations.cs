@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WirelessMediaTest.EFDataAccess.Migrations
 {
-    public partial class finished_configurations : Migration
+    public partial class finished_migrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -56,36 +56,6 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ManufacturerVendors",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
-                    UpdatedAt = table.Column<DateTime>(nullable: true),
-                    Deleted = table.Column<bool>(nullable: false),
-                    ManufacturerId = table.Column<int>(nullable: false),
-                    VendorId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ManufacturerVendors", x => x.Id);
-                    table.UniqueConstraint("AK_ManufacturerVendors_ManufacturerId_VendorId", x => new { x.ManufacturerId, x.VendorId });
-                    table.ForeignKey(
-                        name: "FK_ManufacturerVendors_Manufacturers_ManufacturerId",
-                        column: x => x.ManufacturerId,
-                        principalTable: "Manufacturers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ManufacturerVendors_Vendors_VendorId",
-                        column: x => x.VendorId,
-                        principalTable: "Vendors",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -98,7 +68,8 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
                     ProductDesc = table.Column<string>(nullable: false),
                     ProductPrice = table.Column<double>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
-                    ManufacturerVendorId = table.Column<int>(nullable: false)
+                    ManufacturerId = table.Column<int>(nullable: false),
+                    VendorId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -110,17 +81,18 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_ManufacturerVendors_ManufacturerVendorId",
-                        column: x => x.ManufacturerVendorId,
-                        principalTable: "ManufacturerVendors",
+                        name: "FK_Products_Manufacturers_ManufacturerId",
+                        column: x => x.ManufacturerId,
+                        principalTable: "Manufacturers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Vendors_VendorId",
+                        column: x => x.VendorId,
+                        principalTable: "Vendors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ManufacturerVendors_VendorId",
-                table: "ManufacturerVendors",
-                column: "VendorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
@@ -128,9 +100,14 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_ManufacturerVendorId",
+                name: "IX_Products_ManufacturerId",
                 table: "Products",
-                column: "ManufacturerVendorId");
+                column: "ManufacturerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_VendorId",
+                table: "Products",
+                column: "VendorId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -140,9 +117,6 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
-
-            migrationBuilder.DropTable(
-                name: "ManufacturerVendors");
 
             migrationBuilder.DropTable(
                 name: "Manufacturers");

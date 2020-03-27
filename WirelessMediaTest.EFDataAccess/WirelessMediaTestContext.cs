@@ -12,7 +12,6 @@ namespace WirelessMediaTest.EFDataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Manufacturer> Manufacturers { get; set; }
-        public DbSet<ManufacturerVendor> ManufacturerVendors { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,7 +23,6 @@ namespace WirelessMediaTest.EFDataAccess
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new VendorConfiguration());
             modelBuilder.ApplyConfiguration(new ManufacturerConfiguration());
-            modelBuilder.ApplyConfiguration(new ManufacturerVendorConfiguration());
         }
     }
 }

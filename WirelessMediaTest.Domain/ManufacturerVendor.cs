@@ -10,10 +10,12 @@ namespace WirelessMediaTest.Domain
         public int Id { get; set; }
         public int ManufacturerId { get; set; }
         public int VendorId { get; set; }
+        public int ProductId { get; set; }
 
         public Manufacturer Manufacturer { get; set; }
         public Vendor Vendor { get; set; }
+        public Product Product { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+     
     }
 }

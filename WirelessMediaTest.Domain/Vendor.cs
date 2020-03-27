@@ -7,7 +7,6 @@ namespace WirelessMediaTest.Domain
     public class Vendor : BaseEntity
     {
         public string VendorName { get; set; }
-
-        public ICollection<ManufacturerVendor> ManufacturerVendors { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

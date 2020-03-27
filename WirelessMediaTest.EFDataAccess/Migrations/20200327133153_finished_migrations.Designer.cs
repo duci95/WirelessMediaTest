@@ -10,8 +10,8 @@ using WirelessMediaTest.EFDataAccess;
 namespace WirelessMediaTest.EFDataAccess.Migrations
 {
     [DbContext(typeof(WirelessMediaTestContext))]
-    [Migration("20200326184846_finished_configurations")]
-    partial class finished_configurations
+    [Migration("20200327133153_finished_migrations")]
+    partial class finished_migrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,37 +80,6 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
                     b.ToTable("Manufacturers");
                 });
 
-            modelBuilder.Entity("WirelessMediaTest.Domain.ManufacturerVendor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("ManufacturerId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("VendorId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasAlternateKey("ManufacturerId", "VendorId");
-
-                    b.HasIndex("VendorId");
-
-                    b.ToTable("ManufacturerVendors");
-                });
-
             modelBuilder.Entity("WirelessMediaTest.Domain.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -131,7 +100,7 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<int>("ManufacturerVendorId")
+                    b.Property<int>("ManufacturerId")
                         .HasColumnType("int");
 
                     b.Property<string>("ProductDesc")
@@ -149,11 +118,16 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("VendorId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("ManufacturerVendorId");
+                    b.HasIndex("ManufacturerId");
+
+                    b.HasIndex("VendorId");
 
                     b.ToTable("Products");
                 });
@@ -187,21 +161,6 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
                     b.ToTable("Vendors");
                 });
 
-            modelBuilder.Entity("WirelessMediaTest.Domain.ManufacturerVendor", b =>
-                {
-                    b.HasOne("WirelessMediaTest.Domain.Manufacturer", "Manufacturer")
-                        .WithMany("ManufacturerVendors")
-                        .HasForeignKey("ManufacturerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WirelessMediaTest.Domain.Vendor", "Vendor")
-                        .WithMany("ManufacturerVendors")
-                        .HasForeignKey("VendorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("WirelessMediaTest.Domain.Product", b =>
                 {
                     b.HasOne("WirelessMediaTest.Domain.Category", "Category")
@@ -210,9 +169,15 @@ namespace WirelessMediaTest.EFDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WirelessMediaTest.Domain.ManufacturerVendor", "ManufacturerVendor")
+                    b.HasOne("WirelessMediaTest.Domain.Manufacturer", "Manufacturer")
                         .WithMany("Products")
-                        .HasForeignKey("ManufacturerVendorId")
+                        .HasForeignKey("ManufacturerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WirelessMediaTest.Domain.Vendor", "Vendor")
+                        .WithMany("Products")
+                        .HasForeignKey("VendorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

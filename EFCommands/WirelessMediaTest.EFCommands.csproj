@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ManufacturerCommands\" />
-    <Folder Include="NewFolder\" />
-    <Folder Include="VendorCommands\" />
+    <Folder Include="EFManufacturerCommands\" />
+    <Folder Include="EFVendorCommands\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\WirelessMediaTest.Application.csproj" />
     <ProjectReference Include="..\WirelessMediaTest.EFDataAccess\WirelessMediaTest.EFDataAccess.csproj" />
   </ItemGroup>
 
