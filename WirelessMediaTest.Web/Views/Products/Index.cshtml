@@ -41,7 +41,7 @@
                 <span>@item.VendorName</span>
             </td>
             <td>
-                <a asp-action="Edit" id="@item.Id">Edit</a>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { id = item.Id }) 
             </td>
         </tr>
     }

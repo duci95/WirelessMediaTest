@@ -35,9 +35,10 @@ namespace WirelessMediaTest.Web.Controllers
 
         // GET: Products
         public ActionResult Index()
-        {            
+        {
             ViewBag.Products = wirelessMediaTestContext.Products.Select(p => new ProductsDTO
             {
+                Id = p.Id,
                 ProductName = p.ProductName,
                 ProductDesc = p.ProductDesc,
                 ProductPrice = p.ProductPrice,
@@ -87,12 +88,12 @@ namespace WirelessMediaTest.Web.Controllers
             {
                 var product = new ProductDTO
                 {
-                   ProductName = addProductDTOModel.ProductName,
-                   CategoryId = addProductDTOModel.CategoryId,
-                   ManufacturerId = addProductDTOModel.ManufacturerId,
-                   ProductDesc = addProductDTOModel.ProductDesc,
-                   ProductPrice = addProductDTOModel.ProductPrice,
-                   VendorId = addProductDTOModel.VendorId
+                    ProductName = addProductDTOModel.ProductName,
+                    CategoryId = addProductDTOModel.CategoryId,
+                    ManufacturerId = addProductDTOModel.ManufacturerId,
+                    ProductDesc = addProductDTOModel.ProductDesc,
+                    ProductPrice = addProductDTOModel.ProductPrice,
+                    VendorId = addProductDTOModel.VendorId
                 };
 
                 addProductCommand.Operation(product);
@@ -107,7 +108,7 @@ namespace WirelessMediaTest.Web.Controllers
             {
                 return View();
             }
-            
+
         }
 
         // GET: Products/Edit/5
