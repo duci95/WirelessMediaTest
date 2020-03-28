@@ -1,9 +1,12 @@
-﻿@model WirelessMediaTest.Web.Models.AddProductDTOModel
+﻿@model WirelessMediaTest.Web.Models.ProductDTOModel
 
 @{
     ViewData["Title"] = "Create";
 }
-
+@if (TempData["error"] != null)
+{
+    <p class="text-danger">@TempData["error"]</p>
+}
 <h1>Create</h1>
 
 <h4>AddProductDTOModel</h4>

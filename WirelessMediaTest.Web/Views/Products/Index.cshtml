@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WirelessMediaTest.Application.DTO.ProductsDTO>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Manufacturer</th>
+            <th>Vendor</th>
+        </tr>
+    @foreach (var item in ViewBag.Products)
+    {
+        <tr>
+            <td>
+                <span>@item.ProductName</span>
+            </td>
+            <td>
+                <span>@item.ProductDesc</span>
+            </td>
+            <td>
+                <span>@item.ProductPrice</span>
+            </td>
+            <td>
+                <span>@item.CategoryName</span>
+            </td>
+            <td>
+                <span>@item.ManufacturerName</span>
+            </td>
+            <td>
+                <span>@item.VendorName</span>
+            </td>
+            <td>
+                <a asp-action="Edit" id="@item.Id">Edit</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -16,12 +16,12 @@ namespace WirelessMediaTest.EFCommands.EFProductCommands
         {
 
         }
-        public void Operation(AddProductDTO req)
+        public void Operation(ProductDTO req)
         {
             if (Context.Products.Any(p => p.ProductName == req.ProductName))
             {
                 //this exception is thrown if there is already product with same name
-                throw new AlreadyExistsException("Name of the product already exists");
+                throw new AlreadyExistsException();
             }
 
             

@@ -5,9 +5,9 @@ using WirelessMediaTest.EFDataAccess;
 
 namespace WirelessMediaTest.EFCommands
 {
-    public class EFBase
+    public abstract class EFBase
     {
-        protected WirelessMediaTestContext Context { get; }
-        protected EFBase(WirelessMediaTestContext context) => Context = context;
+        protected  WirelessMediaTestContext Context { get; }
+        protected  EFBase(WirelessMediaTestContext context) => Context = context;
     }
 }
